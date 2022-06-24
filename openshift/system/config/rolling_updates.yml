@@ -13,7 +13,6 @@ base: &default
   new_notification_system: true
   cms_api: false
   apicast_v2: true
-  forum: false
   published_service_plan_signup: true
   apicast_oidc: true
   policy_registry: true

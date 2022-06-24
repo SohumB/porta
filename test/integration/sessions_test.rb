@@ -60,7 +60,7 @@ class SessionsTest < ActionDispatch::IntegrationTest
       provider_key: @provider.api_key,
       user_id: user_id,
       username: user.username,
-      redirect_url: forum_path(host: @provider.domain)
+      redirect_url: forum_path(host: @provider.domain) # TODO: use other url or remove test
     }
 
     assert_response :created
@@ -117,7 +117,7 @@ class SessionsTest < ActionDispatch::IntegrationTest
 
     host! @provider.domain
 
-    get developer_portal.create_session_url(username: user.username, password: 'wwwwww', redirect_url: forum_url(host: @provider.domain))
+    get developer_portal.create_session_url(username: user.username, password: 'wwwwww', redirect_url: forum_url(host: @provider.domain)) # TODO: use other url or remove test
     follow_redirect!
 
     assert_equal root_path, path
@@ -131,7 +131,7 @@ class SessionsTest < ActionDispatch::IntegrationTest
 
     host! @provider.domain
 
-    get developer_portal.create_session_url(token: 'yabadabado', expires_at: '2016', redirect_url: forum_url(host: @provider.domain))
+    get developer_portal.create_session_url(token: 'yabadabado', expires_at: '2016', redirect_url: forum_url(host: @provider.domain)) # TODO: use other url or remove test
     follow_redirect!
 
     assert_equal forum_path, path

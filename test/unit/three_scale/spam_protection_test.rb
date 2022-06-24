@@ -40,14 +40,6 @@ class ThreeScale::SpamProtectionTest < ActiveSupport::TestCase
     test "be included in Account" do
       assert Account <= subject
     end
-
-    test "be included in Post" do
-      assert Account <= subject
-    end
-
-    test "be included in Topic" do
-      assert Account <= subject
-    end
   end
 
   class ControllersTest < ActiveSupport::TestCase

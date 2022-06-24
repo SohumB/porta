@@ -209,18 +209,6 @@ class Account < ApplicationRecord
     User.where(conditions).joins(:account).readonly(false)
   end
 
-  def forum!
-    forum || raise(ActiveRecord::RecordNotFound, "buyer accounts can't have forum")
-  end
-
-  def build_forum(attributes = {})
-    self.forum = Forum.new(attributes.reverse_merge(name: 'Forum'))
-  end
-
-  def create_forum(attributes = {})
-    build_forum(attributes).tap(&:save)
-  end
-
   #TODO: check if the comment below still holds
   # profile is using acts_as_audited and it will not work if :dependent => :destroy
   has_one :profile, dependent: :delete
@@ -407,7 +395,7 @@ class Account < ApplicationRecord
   # @param [SystemOperation] operation
   def fetch_dispatch_rule(operation)
     MailDispatchRule.fetch_with_retry!(system_operation: operation, account: self) do |m|
-      m.dispatch = false if %w[weekly_reports daily_reports new_forum_post].include?(operation.ref)
+      m.dispatch = false if %w[weekly_reports daily_reports].include?(operation.ref)
       m.emails = emails.first
     end
   end

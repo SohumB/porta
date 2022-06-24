@@ -64,8 +64,6 @@ class Notifications::NewNotificationSystemMigration
                     :account_plan_change_requested
                   when :new_message
                     :message_received
-                  when :new_forum_post
-                    :post_created
                   when :weekly_reports
                     :weekly_report
                   when :daily_reports

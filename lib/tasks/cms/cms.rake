@@ -111,13 +111,6 @@ namespace :cms do
     end
   end
 
-  desc "Create missing static pages"
-  task create_missing_static_pages: :environment do
-    for_all_providers do |provider|
-      SimpleLayout.new(provider).import_static_pages!
-    end
-  end
-
   desc "Delete a specific builtin static page"
   task :delete_builtin_static_page, [:provider_id, :system_name] => :environment do |t, args|
     if args[:system_name].blank?

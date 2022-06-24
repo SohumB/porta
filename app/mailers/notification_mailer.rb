@@ -323,21 +323,6 @@ class NotificationMailer < ActionMailer::Base
     mail to: @receiver.email, subject: "New message from #{event.sender.name}"
   end
 
-  # @param [Posts::PostCreatedEvent] event
-  # @param [User] receiver
-  delivers Posts::PostCreatedEvent, abilities: { manage: :forum }, hidden_onprem_multitenancy: true
-  def post_created(event, receiver)
-    @provider_account = event.provider
-    @receiver         = receiver.decorate
-    @post             = event.post
-    @account          = event.try(:account)
-    @user             = (event.try(:user) || User.new(username: 'anonymous user')).decorate
-    @user_name        = @user.informal_name
-    @event            = event
-
-    mail to: @receiver.email, subject: "New forum post by #{@user_name}"
-  end
-
   # @param [Reports::CsvDataExportEvent] event
   # @param [User] receiver
   delivers Reports::CsvDataExportEvent, hidden: true

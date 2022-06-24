@@ -641,7 +641,7 @@ this returns the errors that occurred.</p>
 <p>Returns the title of result.</p>
 <h3>
 <a id="kind-1" class="anchor" href="#kind-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>kind</h3>
-<p>Returns the kind of result; can be 'topic' or 'page'.</p>
+<p>Returns the kind of result; can be 'page'.</p>
 <h3>
 <a id="url-3" class="anchor" href="#url-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>url</h3>
 <p>Returns the resource URL of the result.</p>
@@ -1138,20 +1138,6 @@ for future compatibility.</p>
    &lt;/p&gt;
 {% endfor %}
 </code></pre>
-<hr>
-<h1>
-<a id="forum-drop" class="anchor" href="#forum-drop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Forum drop</h1>
-<h2>
-<a id="methods-23" class="anchor" href="#methods-23" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h2>
-<h3>
-<a id="enabled" class="anchor" href="#enabled" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>enabled?</h3>
-<p>Returns true if you have forum functionality enabled.</p>
-<pre lang="liquid"><code>{% if forum.enabled? %}
-  &lt;a href="/forum"&gt;Check out our forum!&lt;/a&gt;
-{% endif %}
-</code></pre>
-<h3>
-<a id="latest_posts" class="anchor" href="#latest_posts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>latest_posts</h3>
 <hr>
 <h1>
 <a id="i18n-drop" class="anchor" href="#i18n-drop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>I18n drop</h1>
@@ -1811,56 +1797,6 @@ this returns the errors that occurred.</p>
 <a id="enabled-1" class="anchor" href="#enabled-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>enabled?</h3>
 <hr>
 <h1>
-<a id="post-drop" class="anchor" href="#post-drop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Post drop</h1>
-<h2>
-<a id="methods-39" class="anchor" href="#methods-39" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h2>
-<h3>
-<a id="errors-21" class="anchor" href="#errors-21" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>errors</h3>
-<p>If a form for this model is rendered after unsuccessful submission,
-this returns the errors that occurred.</p>
-<pre lang="liquid"><code>&lt;input name="post[name]"
-       value="{{ post.name }}"
-       class="{{ post.errors.name | error_class }}"/&gt;
-{{ post.errors.name | inline_errors }}
-</code></pre>
-<h3>
-<a id="title-4" class="anchor" href="#title-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>title</h3>
-<h3>
-<a id="kind-3" class="anchor" href="#kind-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>kind</h3>
-<h3>
-<a id="url-10" class="anchor" href="#url-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>url</h3>
-<h3>
-<a id="description-7" class="anchor" href="#description-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>description</h3>
-<hr>
-<h1>
-<a id="post-drop-1" class="anchor" href="#post-drop-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Post drop</h1>
-<h2>
-<a id="methods-40" class="anchor" href="#methods-40" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h2>
-<h3>
-<a id="errors-22" class="anchor" href="#errors-22" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>errors</h3>
-<p>If a form for this model is rendered after unsuccessful submission,
-this returns the errors that occurred.</p>
-<pre lang="liquid"><code>&lt;input name="post[name]"
-       value="{{ post.name }}"
-       class="{{ post.errors.name | error_class }}"/&gt;
-{{ post.errors.name | inline_errors }}
-</code></pre>
-<h3>
-<a id="body-1" class="anchor" href="#body-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>body</h3>
-<p>Text of the post.</p>
-<h3>
-<a id="topic" class="anchor" href="#topic" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>topic</h3>
-<p>Every post belongs to a <a href="#topic-drop">topic</a>.</p>
-<h3>
-<a id="created_at-3" class="anchor" href="#created_at-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>created_at</h3>
-<p>Date when this post created.</p>
-<pre lang="liquid"><code>{{ post.created_at | date: i18n.short_date }}
-</code></pre>
-<h3>
-<a id="url-11" class="anchor" href="#url-11" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>url</h3>
-<p>The URL of this post within its topic.</p>
-<hr>
-<h1>
 <a id="pricingrule-drop" class="anchor" href="#pricingrule-drop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PricingRule drop</h1>
 <h2>
 <a id="methods-41" class="anchor" href="#methods-41" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h2>
@@ -2453,39 +2389,6 @@ it does not affect existing contracts.</p>
 <a id="beginning_of_month" class="anchor" href="#beginning_of_month" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>beginning_of_month</h3>
 <p>Returns the date of beginning of current month.</p>
 <pre lang="liquid"><code>This month began on {{ today.beginning_of_month | date: '%A' }}
-</code></pre>
-<hr>
-<h1>
-<a id="topic-drop" class="anchor" href="#topic-drop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Topic drop</h1>
-<h2>
-<a id="methods-53" class="anchor" href="#methods-53" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h2>
-<h3>
-<a id="errors-26" class="anchor" href="#errors-26" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>errors</h3>
-<p>If a form for this model is rendered after unsuccessful submission,
-this returns the errors that occurred.</p>
-<pre lang="liquid"><code>&lt;input name="topic[name]"
-       value="{{ topic.name }}"
-       class="{{ topic.errors.name | error_class }}"/&gt;
-{{ topic.errors.name | inline_errors }}
-</code></pre>
-<h3>
-<a id="title-5" class="anchor" href="#title-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>title</h3>
-<p>Name of the topic. Submitted when first post to the thread is posted.</p>
-<h3>
-<a id="url-12" class="anchor" href="#url-12" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>url</h3>
-<hr>
-<h1>
-<a id="topic-drop-1" class="anchor" href="#topic-drop-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Topic drop</h1>
-<h2>
-<a id="methods-54" class="anchor" href="#methods-54" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h2>
-<h3>
-<a id="errors-27" class="anchor" href="#errors-27" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>errors</h3>
-<p>If a form for this model is rendered after unsuccessful submission,
-this returns the errors that occurred.</p>
-<pre lang="liquid"><code>&lt;input name="topic[name]"
-       value="{{ topic.name }}"
-       class="{{ topic.errors.name | error_class }}"/&gt;
-{{ topic.errors.name | inline_errors }}
 </code></pre>
 <h3>
 <a id="title-6" class="anchor" href="#title-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>title</h3>

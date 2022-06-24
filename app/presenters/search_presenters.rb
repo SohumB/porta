@@ -144,15 +144,4 @@ module SearchPresenters
       @search
     end
   end
-
-  class ForumPresenter < SearchAbstractPresenter
-    def item
-      'forum document'
-    end
-
-    def options
-      super.merge(:classes => [Topic])
-    end
-  end
-
 end

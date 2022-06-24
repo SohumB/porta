@@ -20,14 +20,13 @@ class ModelsTest < ActiveSupport::TestCase
       'CMS::EmailTemplate' => %w[content_type], 'CMS::Builtin' => %w[title], 'CMS::Builtin::StaticPage' => %w[title], 'CMS::Builtin::Page' => %w[title content_type],
       'CMS::Builtin::Partial' => %w[title content_type], 'CMS::Portlet' => %w[content_type], 'CMS::Builtin::LegalTerm' => %w[title content_type],
       'CMS::Portlet::Base' => %w[content_type], 'ExternalRssFeedPortlet' => %w[content_type],
-      'LatestForumPostsPortlet' => %w[content_type], 'TableOfContentsPortlet' => %w[content_type], 'AuthenticationProvider::GitHub' => %w[branding_state account_type],
       'AuthenticationProvider::Keycloak' => %w[account_type], 'AuthenticationProvider::Auth0' => %w[account_type], 'AuthenticationProvider::Custom' => %w[account_type],
       'AuthenticationProvider::ServiceDiscoveryProvider' => %w[account_type], 'AuthenticationProvider::RedhatCustomerPortal' => %w[account_type],
       'Account' => %w[credit_card_auth_code credit_card_authorize_net_payment_profile_token credit_card_partial_number]
     }
 
     Rails.application.eager_load!
-    models = ActiveRecord::Base.descendants - [BackendApi, Service, Proxy, Topic, Forum]
+    models = ActiveRecord::Base.descendants - [BackendApi, Service, Proxy]
 
     validate_columns_for = ->(model, options = {}) do
       model_name = model.name

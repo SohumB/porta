@@ -95,15 +95,6 @@ class SimpleLayout
       import_images!
 
       create_builtin_pages_and_partials!
-      import_static_pages!
-    end
-  end
-
-  def import_static_pages!
-    builtin_static_pages.each do |layout|
-      unless provider.builtin_static_pages.where(system_name: layout[:system_name]).exists?
-        build_builtin_static_page(layout).save!
-      end
     end
   end
 
@@ -288,10 +279,6 @@ class SimpleLayout
                             liquid_enabled: true).publish!
   end
 
-  def builtin_static_pages
-    forum_builtin_static_pages
-  end
-
   def find_or_create_section(name, path, options = {})
     provider.builtin_sections.find_or_create!(name, path, options)
   end
@@ -308,42 +295,7 @@ class SimpleLayout
 
   private
 
-  def forum_builtin_static_pages
-    return [] unless provider.provider_can_use?(:forum)
-
-    forum             = find_or_create_section('Forum', '/forum')
-    forum_categories  = find_or_create_section('Categories', '/forum/categories', parent: forum)
-    forum_posts       = find_or_create_section('Posts', '/forum/posts', parent: forum)
-    forum_topics      = find_or_create_section('Topics', '/forum/topics', parent: forum)
-    forum_user_topics = find_or_create_section('User Topics', '/forum/user_topics', parent: forum)
-
-    [
-      { section: forum, system_name: 'forum/forums/show' },
-      { section: forum_posts, system_name: 'forum/posts/index' },
-      { section: forum_posts, system_name: 'forum/posts/new' },
-      { section: forum_posts, system_name: 'forum/posts/show' },
-      { section: forum_posts, system_name: 'forum/posts/edit' },
-      { section: forum_topics, system_name: 'forum/topics/my' },
-      { section: forum_topics, system_name: 'forum/topics/show' },
-      { section: forum_topics, system_name: 'forum/topics/new' },
-      { section: forum_topics, system_name: 'forum/topics/edit' },
-      { section: forum_user_topics, system_name: 'forum/user_topics/index' },
-      { section: forum_categories, system_name: 'forum/categories/index' },
-      { section: forum_categories, system_name: 'forum/categories/show' },
-      { section: forum_categories, system_name: 'forum/categories/new' },
-      { section: forum_categories, system_name: 'forum/categories/edit' }
-    ]
-  end
-
   def root
     provider.builtin_sections.root || find_or_create_section('Root', '/', root: true, parent: nil)
   end
-
-  def build_builtin_static_page(attributes)
-    provider.builtin_static_pages.build do |l|
-      l.system_name = attributes[:system_name]
-      l.section = attributes[:section]
-    end
-  end
-
 end

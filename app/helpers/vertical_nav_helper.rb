@@ -86,7 +86,6 @@ module VerticalNavHelper
     sections << {id: :finance,      title: 'Billing',          items: audience_billing_items}       if can?(:see, :finance) && (can?(:manage, :finance) || can?(:manage, :settings))
     sections << {id: :cms,          title: 'Developer Portal', items: audience_portal_items}        if (can?(:manage, :portal) || can?(:manage, :settings) || can?(:manage, :plans)) && !master_on_premises?
     sections << {id: :messages,     title: 'Messages',         items: audience_messages_items}
-    sections << {id: :forum,        title: 'Forum',            items: audience_forum_items}         if can?(:manage, :portal) && current_account.forum_enabled?
     sections
   end
 
@@ -161,7 +160,6 @@ module VerticalNavHelper
       items << {id: :spam_protection,  title: 'Spam Protection',  path: edit_admin_site_spam_protection_path}
       items << {id: :xss_protection,   title: 'XSS Protection',   path: edit_admin_site_developer_portal_path} if current_account.show_xss_protection_options?
       items << {id: :sso_integrations, title: 'SSO Integrations', path: provider_admin_authentication_providers_path}
-      items << {id: :forum_settings,   title: 'Forum Settings',   path: edit_admin_site_forum_path} if !current_account.forum_enabled? && provider_can_use?(:forum)
     end
 
     items << {                       title: 'Docs'}
@@ -178,22 +176,6 @@ module VerticalNavHelper
       items << {                title: 'Settings'}
       items << {id: :email,     title: 'Support Emails',  path: edit_admin_site_emails_path}
       items << {id: :templates, title: 'Email Templates', path: provider_admin_cms_email_templates_path}
-    end
-
-    items
-  end
-
-  def audience_forum_items
-    items = []
-    items << {id: :threads,          title: 'Threads',          path: admin_forum_path}
-    items << {id: :categories,       title: 'Categories',       path: forum_categories_path}
-
-    items << {id: :my_threads,       title: 'My Threads',       path: my_admin_forum_topics_path} if logged_in?
-    items << {id: :my_subscriptions, title: 'My subscriptions', path: forum_subscriptions_path}   if user_has_subscriptions?
-
-    if can?(:manage, :settings)
-      items << {               title: ' '} # Blank space
-      items << {id: :settings, title: 'Preferences', path: edit_admin_site_forum_path}
     end
 
     items

@@ -240,11 +240,3 @@ hr, {
   color: $success-color;
   cursor: move;
 }
-
-#forum {
-  .u-dl,
-  .post {
-    @include white-box-shadow;
-    padding: line-height-times(1);
-  }
-}

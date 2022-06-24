@@ -60,22 +60,6 @@ Ability.define do |user|
       can :read, Invoice, :buyer_account_id => account.id
     end
 
-    #
-    # Forum permissions
-    #
-    can :read, Topic do |topic|
-      topic.forum.public? or topic.forum.account == account
-    end
-
-    can :read, TopicCategory do |category|
-      category.forum.public? or category.forum.account == account
-    end
-
-    can :reply, Topic do |topic|
-      forum = topic.forum || topic.category.try!(:forum)
-      forum.account == account
-    end
-
     if account.provider_can_use?(:new_notification_system)
       can [:show, :edit, :update], NotificationPreferences, user_id: user.id
       can [:show, :update], NotificationPreferences, &:new_record?

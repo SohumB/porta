@@ -19,7 +19,6 @@ class Settings < ApplicationRecord
   include Switches
 
   before_create :generate_sso_key
-  before_create :set_forum_enabled
 
   alias provider account
 
@@ -43,14 +42,6 @@ class Settings < ApplicationRecord
     end
 
     super(attributes)
-  end
-
-  def set_forum_enabled
-    if account
-      self.forum_public = self.forum_enabled = !!account.provider_can_use?(:forum)
-    end
-
-    true
   end
 
   def account_approval_required

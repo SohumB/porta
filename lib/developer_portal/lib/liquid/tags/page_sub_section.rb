@@ -6,8 +6,8 @@ module Liquid::Tags
     example "Using page_sub_section in liquid", %{
       <html>
         <body id="{% page_section %}" class="{% page_sub_section %}">
-          <p class="notice">You are visiting post/new, the id of the body will be 'post'</p>
-          <p class="notice">You are visiting post/new, the class of the body will be 'new'</p>
+          <p class="notice">You are visiting application/new, the id of the body will be 'application'</p>
+          <p class="notice">You are visiting application/new, the class of the body will be 'new'</p>
         </body>
       </html>
     }

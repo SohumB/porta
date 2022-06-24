@@ -18,7 +18,6 @@ Feature: Audience menu
     | Accounts                  |
     | Portal                    |
     | Messages                  |
-    | Forum                     |
 
   Scenario: Accounts sub menu structure
     When I follow "Accounts" within the main menu
@@ -51,14 +50,6 @@ Feature: Audience menu
     | Trash                     |
     | Support Emails            |
     | Email Templates           |
-
-  Scenario: Forum sub menu structure
-    When I follow "Forum" within the main menu
-    Then I should see menu items
-    | Threads                   |
-    | Categories                |
-    | My Threads                |
-    | Preferences               |
 
   Scenario: Accounts sub menu structure with account plans enabled
     When provider "foo.3scale.localhost" has "account_plans" visible

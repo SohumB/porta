@@ -39,11 +39,3 @@
                    icon: 'envelope',
                    vertical_nav_item: vertical_nav_item,
                    submenu: :messages }
-
-- if can?(:manage, :portal) && current_account.forum_enabled?
-  = render partial: 'shared/provider/navigation/audience/forum',
-           layout: layout_secondary_nav,
-           locals: { title: 'Forum',
-                     icon: 'comments',
-                     vertical_nav_item: vertical_nav_item,
-                     submenu: :forum }

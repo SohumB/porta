@@ -25,7 +25,6 @@ Feature: Notifications
       And the "Plan change by a user" checkbox should be checked
       And the "User cancels account" checkbox should be checked
 
-    But the "New forum post" checkbox should not be checked
       And the "Weekly aggregate report" checkbox should not be checked
       And the "Daily aggregate report" checkbox should not be checked
 
@@ -71,12 +70,6 @@ Feature: Notifications
     Then I should have the notification "Plan change by a user" enabled
     When I uncheck "Plan change by a user"
     Then I should have the notification "Plan change by a user" disabled
-
-    # FIXME: THREESCALE-7195 this scenario is failing in CircleCI. We need to refactor it as an integration test.
-    # When I check "New forum post"
-    # Then I should have the notification "New forum post" enabled
-    # When I uncheck "New forum post"
-    # Then I should have the notification "New forum post" disabled
 
     When I check "User cancels account"
     Then I should have the notification "User cancels account" enabled

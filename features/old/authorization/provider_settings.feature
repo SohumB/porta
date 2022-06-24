@@ -16,9 +16,6 @@ Feature: Provider settings authorization
       And I go to the <page> page
      Then I should be on the <page> page
 
-    # not testing | Forum                | forum settings           |
-    # as it doesn't appear on dashboard if 0 threads
-
     Examples:
       | link                 | page                     |
       | Billing              | edit site settings       |
@@ -49,7 +46,6 @@ Feature: Provider settings authorization
       | 0 Accounts           | fields definitions index |
       | Billing              | edit site settings       |
       | Billing              | finance settings         |
-      | Forum                | forum settings           |
       | 0 Messages           | emails settings          |
       | 0 Messages           | email templates          |
       | Developer Portal     | site settings            |
@@ -67,9 +63,6 @@ Feature: Provider settings authorization
       And I follow "0 Messages"
       And I go to the <page> page
      Then I should be on the <page> page
-
-    # not testing | Forum                | forum settings           |
-    # as it doesn't appear on dashboard if 0 threads
 
     Examples:
       | link                 | page                     |

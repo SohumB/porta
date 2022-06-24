@@ -1,5 +1,4 @@
 class Sites::DocumentationsController < Sites::BaseController
-  # see ForumsController
   activate_menu :serviceadmin
 
   before_action :authorize_connect
