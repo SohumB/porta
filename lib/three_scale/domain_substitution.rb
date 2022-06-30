@@ -169,6 +169,7 @@ module ThreeScale::DomainSubstitution
     end
 
     deprecate domain: "use #internal_domain or #external_domain",
+      self_domain: "use #internal_admin_domain or #external_admin_domain",
       deprecator: ThreeScale::Deprecation::Deprecator.new
   end
 
