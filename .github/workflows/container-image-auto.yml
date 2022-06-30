@@ -1,0 +1,9 @@
+name: Build porta container image on push
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  call-build:
+    uses: ./.github/workflows/container-image-buildx.yml
