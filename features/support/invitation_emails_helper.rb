@@ -5,7 +5,7 @@ module InvitationEmailsHelper
     assert_equal "Invitation to join #{inviting_account.org_name}", message.subject
 
     regexp = if inviting_account.provider?
-               %r{https:\/\/#{Regexp.quote(inviting_account.admin_domain)}/p/signup/[a-f0-9]+}
+               %r{https:\/\/#{Regexp.quote(inviting_account.internal_admin_domain)}/p/signup/[a-f0-9]+}
              else
                %r{https:\/\/#{Regexp.quote(domain)}/signup/[a-f0-9]+}
              end

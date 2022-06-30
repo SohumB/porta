@@ -21,7 +21,7 @@ class EnterpriseApiApplicationsTest < ActionDispatch::IntegrationTest
 
     @application = @provider.provided_cinstances.last
 
-    host! @provider.admin_domain
+    host! @provider.internal_admin_domain
   end
 
   #TODO: test extra fields in indexes

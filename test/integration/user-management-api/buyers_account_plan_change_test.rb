@@ -14,7 +14,7 @@ class EnterpriseApiBuyersAccountPlanChangeTest < ActionDispatch::IntegrationTest
 
     @hidden_account_plan = FactoryBot.create(:account_plan, issuer: @provider)
 
-    host! @provider.admin_domain
+    host! @provider.internal_admin_domain
   end
 
   test 'successful change account plan' do

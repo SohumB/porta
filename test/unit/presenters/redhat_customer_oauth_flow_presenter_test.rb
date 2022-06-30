@@ -17,7 +17,7 @@ class RedhatCustomerOAuthFlowPresenterTest < ActiveSupport::TestCase
 
   def test_callback_url
     system_name = RedhatCustomerPortalSupport::RH_CUSTOMER_PORTAL_SYSTEM_NAME
-    assert_equal "http://#{master_account.admin_domain}/auth/#{system_name}/callback?plan_id=52&self_domain=admin.company.com", @redhat_customer_oauth_flow_presenter.callback_url
+    assert_equal "http://#{master_account.internal_admin_domain}/auth/#{system_name}/callback?plan_id=52&self_domain=admin.company.com", @redhat_customer_oauth_flow_presenter.callback_url
   end
 
   def test_domain_parameters

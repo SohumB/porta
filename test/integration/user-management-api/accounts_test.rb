@@ -17,7 +17,7 @@ class Admin::Api::AccountsTest < ActionDispatch::IntegrationTest
 
     @buyer.buy! @application_plan
 
-    host! @provider.admin_domain
+    host! @provider.internal_admin_domain
   end
 
   class AccessTokenTest < Admin::Api::AccountsTest

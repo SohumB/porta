@@ -62,7 +62,7 @@ class DeveloperPortal::Admin::Account::AccountPlansControllerTest < DeveloperPor
     Account.expects(:first_by_provider_key!).with('fake')
       .raises(Backend::ProviderKeyInvalid)
 
-    @request.host = @provider.admin_domain
+    @request.host = @provider.internal_admin_domain
     post :change, params: { format: 'xml', id: '42',
          provider_key: 'fake', username: 'bob' }
 
@@ -79,7 +79,7 @@ class DeveloperPortal::Admin::Account::AccountPlansControllerTest < DeveloperPor
     @provider.buyer_users.expects(:find_by)
       .with(username: 'fake').returns(nil).at_least_once
 
-    @request.host = @provider.admin_domain
+    @request.host = @provider.internal_admin_domain
     post :change, params: { format: 'xml', id: '42',
          provider_key: @provider.api_key,
          username: 'fake' }

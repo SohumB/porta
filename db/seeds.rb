@@ -226,7 +226,7 @@ ActiveRecord::Base.transaction do
 
   if master_login && master_password
     puts <<~INFO
-      Master Domain: #{master.admin_domain}
+      Master Domain: #{master.internal_admin_domain}
       Master User Login: #{master_login}
       Master User Password: #{master_password}
       Master RW access token: #{master_access_token}\n
@@ -234,7 +234,7 @@ ActiveRecord::Base.transaction do
   end
 
   puts <<~INFO
-    Provider Admin Domain: #{provider.admin_domain}
+    Provider Admin Domain: #{provider.internal_admin_domain}
     Provider Portal Domain: #{provider.domain}
     Provider User Login: #{user_login}
     Provider User Password: #{user_password}

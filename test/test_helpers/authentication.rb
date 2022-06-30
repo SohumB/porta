@@ -28,7 +28,7 @@ ActionController::TestCase.class_eval do
   end
 
   def login_provider(account, user: account.admins.first!)
-    host! account.admin_domain
+    host! account.internal_admin_domain
     login_as user
   end
 

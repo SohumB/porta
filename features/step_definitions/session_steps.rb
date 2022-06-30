@@ -75,7 +75,7 @@ When /^I log in as (provider )?"([^"]*)" on (\S+)$/ do |provider,username, domai
 end
 
 When "I log in as {string} on the admin domain of {provider}" do |username, provider|
-  step %(I log in as provider "#{username}" on #{provider.admin_domain})
+  step %(I log in as provider "#{username}" on #{provider.internal_admin_domain})
 end
 
 

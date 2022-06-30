@@ -20,8 +20,8 @@ When /^I hit "([^"]*)" on ([^\s]+)$/ do |path,domain|
 end
 
 Given "current domain is the {word} domain of {provider}" do |level, provider|
-  raise "Missing admin domain of #{provider.name}" if provider.admin_domain.blank?
-  step %(the current domain is #{level == 'admin' ? provider.admin_domain : 'the master domain'})
+  raise "Missing admin domain of #{provider.name}" if provider.internal_admin_domain.blank?
+  step %(the current domain is #{level == 'admin' ? provider.internal_admin_domain : 'the master domain'})
   @provider = provider
 end
 
@@ -44,7 +44,7 @@ Then /^the current domain is the master domain$/ do
 end
 
 Then "the current domain should be the admin domain of {provider}" do |provider|
-  step %(the current domain should be #{provider.admin_domain})
+  step %(the current domain should be #{provider.internal_admin_domain})
 end
 
 
@@ -71,5 +71,5 @@ Then "the domain of {provider} should be {string}" do |provider, domain|
 end
 
 Then "the admin domain of {provider} should be {string}" do |provider, domain|
-  assert_equal domain, provider.admin_domain
+  assert_equal domain, provider.internal_admin_domain
 end

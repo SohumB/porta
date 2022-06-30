@@ -14,7 +14,7 @@ class Admin::Api::BuyersServicePlansTest < ActionDispatch::IntegrationTest
     @buyer.reload
 
 
-    host! @provider.admin_domain
+    host! @provider.internal_admin_domain
   end
 
   test 'index' do

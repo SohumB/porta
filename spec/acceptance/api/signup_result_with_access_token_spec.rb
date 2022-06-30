@@ -10,7 +10,7 @@ resource 'Signup::ResultWithAccessToken' do
     result.save
     result
   end
-  let(:expected_account_properties) { %w[id created_at updated_at admin_domain domain from_email state] }
+  let(:expected_account_properties) { %w[id created_at updated_at domain from_email state] }
   let(:expected_access_token_properties) { %w[id name scopes permission value] }
 
   json(:resource) do
