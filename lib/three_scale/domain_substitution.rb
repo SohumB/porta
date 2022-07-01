@@ -114,6 +114,7 @@ module ThreeScale::DomainSubstitution
       end
     end
 
+    # FIXME: this method is not equivalent to internal_admin_domain, see https://github.com/3scale/porta/blob/baa33d10df5201a5f5763248c6fd06f1f91ee7a0/test/unit/mailers/post_office_test.rb#L172
     # This is just an alias to _#self_domain_
     # @deprecated Use {#internal_admin_domain}
     # @return [String] the database _self_domain_ value
