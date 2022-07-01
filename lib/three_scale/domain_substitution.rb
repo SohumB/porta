@@ -114,6 +114,13 @@ module ThreeScale::DomainSubstitution
       end
     end
 
+    # This is just an alias to _#self_domain_
+    # @deprecated Use {#internal_admin_domain}
+    # @return [String] the database _self_domain_ value
+    def internal_self_domain
+      self['self_domain']
+    end
+
     # FIXME: this method is not equivalent to external_admin_domain, see https://github.com/3scale/porta/blob/baa33d10df5201a5f5763248c6fd06f1f91ee7a0/test/unit/mailers/post_office_test.rb#L172
     # Use this method if you want to expose the self domain to the view
     # @deprecated Use {#external_admin_domain}
@@ -123,13 +130,6 @@ module ThreeScale::DomainSubstitution
     #   # => "https://provider-admin.proxied-domain.com"
     def external_self_domain
       ThreeScale::DomainSubstitution::Substitutor.to_external(self['self_domain'])
-    end
-
-    # This is just an alias to _#self_domain_
-    # @deprecated Use {#internal_admin_domain}
-    # @return [String] the database _self_domain_ value
-    def internal_self_domain
-      self['self_domain']
     end
 
     # Use this method if you want to expose the domain to the view.
