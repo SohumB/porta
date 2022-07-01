@@ -56,10 +56,6 @@ class DomainSubstitutionTest < ActiveSupport::TestCase
       assert_equal @account['domain'], @account.internal_domain
     end
 
-    def test_internal_self_domain
-      assert_equal @account['self_domain'], @account.internal_self_domain
-    end
-
     def test_internal_admin_domain
       assert_equal @account.internal_admin_domain, @account.internal_admin_domain
     end
